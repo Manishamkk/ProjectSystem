@@ -1,6 +1,12 @@
-stage('Test') {
-    steps {
-        echo 'Skipping tests temporarily'
-        sh 'mvn package -DskipTests'
+pipeline {
+    agent any
+
+    stages {
+        stage('Test') {
+            steps {
+                echo 'Running test cases'
+                sh 'mvn test'
+            }
+        }
     }
 }
